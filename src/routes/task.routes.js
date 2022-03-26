@@ -5,7 +5,6 @@ const Subject = require('../models/task');
 
 router.get('/', async (req, res) => {
     const tasks = await Subject.find();
-    console.log(tasks);
     res.json(tasks);
 });
 
@@ -17,7 +16,6 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     const { title, description } = req.body;
     const subj = new Subject({title, description});
-    console.log(subj);
     await subj.save()
     res.json({status: 'Subject Saved'});
 });
